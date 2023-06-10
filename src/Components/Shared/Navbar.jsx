@@ -16,13 +16,11 @@ const Navbar = () => {
             <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
 
         }
-
-
     </>
 
     return (
         <div className="flex justify-center fixed w-full bg-slate-800 bg-opacity-30">
-            <div className="navbar mx-auto md:w-4/5">
+            <div className="navbar fixed mx-auto md:w-4/5">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -33,7 +31,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link className="md:flex items-center">
-                        <img src="https://i.ibb.co/ygxHsMb/Screenshot-2023-06-10-160018.png" className="w-20 " alt="" />
+                        <img src="https://i.ibb.co/ygxHsMb/Screenshot-2023-06-10-160018.png" className="w-16 " alt="" />
                         <p className="text-3xl ml-4 font-bold">Summer Sports Camp</p>
                     </Link>
                 </div>
