@@ -5,7 +5,8 @@ import { FaRegUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
 
     const navItems = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -17,6 +18,12 @@ const Navbar = () => {
 
         }
     </>
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
 
     return (
         <div className="flex justify-center w-full bg-slate-800 bg-opacity-30">
@@ -44,10 +51,9 @@ const Navbar = () => {
                     {
                         user ? <div className='flex flex-col md:flex-row items-center'>
                             {
-                                user.photoURL ? <img className='avatar w-12 mx-4 rounded-full' title={user.displayName} src={user.photoURL} /> :
-                                    <FaRegUserCircle className='w-14 text-2xl mx-2' />
+                                <img className='avatar w-12 h-12 mx-4 rounded-full' title={user.displayName} src={user.photo} />
                             }
-                            <button className='btn btn-outline border-indigo-600'>Log out</button>
+                            <button onClick={handleLogOut} className='btn btn-outline border-indigo-600'>Log out</button>
                         </div> :
                             <Link to='/login'>Login</Link>
                     }
