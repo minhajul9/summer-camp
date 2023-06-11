@@ -3,7 +3,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 const Banner = () => {
     return (
-        <Carousel className='pt-16'>
+        <Carousel >
                 <div className='h-[800px]'>
                     <img  src="https://img.freepik.com/free-vector/african-boy-girl-playing-football_1308-26183.jpg?w=1380&t=st=1686406412~exp=1686407012~hmac=3351db61df0190ad0b54ed617d1b833388042a75edfa75d5bcfc5fe81d6ea6fc" />
                     <p className="legend">
