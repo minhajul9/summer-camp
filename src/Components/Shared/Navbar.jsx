@@ -6,7 +6,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     const navItems = <>
         <li><NavLink to='/'>Home</NavLink></li>

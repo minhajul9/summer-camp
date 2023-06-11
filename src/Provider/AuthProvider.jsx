@@ -19,10 +19,12 @@ const AuthProvider = ({ children }) => {
     }
 
     const signIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
 
@@ -36,12 +38,18 @@ const AuthProvider = ({ children }) => {
             if (currentUser) {
                 fetch(`http://localhost:5000/user/${currentUser.email}`)
                     .then(res => res.json())
-                    .then(data => setUser(data))
+                    .then(data => {
+                        console.log(data);
+                        setUser(data)
+                        setLoading(false)
+                    })
+                console.log(user);
             }
-            else{
+            else {
                 setUser(null)
+                setLoading(false)
             }
-            setLoading(false)
+            
         })
         return () => {
             return unsubscribe();

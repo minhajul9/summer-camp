@@ -3,9 +3,11 @@ import Main from "../Layout/Main";
 import Home from "../Components/Pages/Home/Home";
 import Instructors from "../Components/Pages/Instructors/Instructors";
 import Classes from "../Components/Pages/Classes/Classes";
-import Dashboard from "../Components/Pages/Dashboard/Dashboard";
 import Login from "../Components/Pages/Instructors/Login/Login";
 import SignUp from "../Components/Pages/SignUp/SignUp";
+import ErrorPage from "../Components/Pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard/Dashboard";
 
 const routes = createBrowserRouter([
     {
@@ -32,11 +34,12 @@ const routes = createBrowserRouter([
                 path: '/signUp',
                 element: <SignUp></SignUp>
             }
-        ]
+        ],
+        errorElement: <ErrorPage></ErrorPage>
     },
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
     }
 ])
 
