@@ -30,12 +30,13 @@ const SignUp = () => {
         if (password === cPassword) {
             createUser(email, password)
                 .then(result => {
-                    console.log(result.user);
+                    // console.log(result.user);
                     const setUser = {
                         name: name,
                         email: email,
                         photo: photo,
-                        phone: phone
+                        phone: phone,
+                        uid: result.user.uid
                     };
 
                     fetch('http://localhost:5000/user', {
@@ -62,13 +63,15 @@ const SignUp = () => {
         googleSignIn()
         .then(result => {
             const user = result.user;
+            console.log(result);
             const setUser = {
                 name: user.displayName,
                 email: user.email,
                 photo: user.photoURL,
-                phone: ""
+                phone: "",
+                uid: user.uid
             };
-
+            console.log(setUser);
             fetch('http://localhost:5000/user', {
                 method: "POST",
                 headers: {

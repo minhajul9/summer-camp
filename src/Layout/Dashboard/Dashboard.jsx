@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { FaHome, FaShoppingCart } from "react-icons/fa";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Dashboard = () => {
@@ -21,14 +21,14 @@ const Dashboard = () => {
                     {/* Sidebar content here */}
                     {
                         user.role === "Admin" ? <>
-                            <li><NavLink>Admin Home</NavLink></li>
-                            <li><NavLink>All Instructors</NavLink></li>
-                            <li><NavLink>All Students</NavLink></li>
-                            <li><NavLink>Pending Approval</NavLink></li>
+                            <li><Link to='/dashboard'>Admin Home</Link></li>
+                            <li><NavLink to='/dashboard/allInstructors'>All Instructors</NavLink></li>
+                            <li><NavLink to='/dashboard/allUsers'>All Users</NavLink></li>
+                            <li><NavLink to='/dashboard/pendingApproval'>Pending Approval</NavLink></li>
                         </> : user.role === "Instructor" ?
                             <>
-                                <li><NavLink>Add a Class</NavLink></li>
-                                <li><NavLink>My Classes</NavLink></li>
+                                <li><NavLink to='/dashboard/addAClass'>Add a Class</NavLink></li>
+                                <li><NavLink to='/dashboard/myClasses'>My Classes</NavLink></li>
                             </> :
                             <>
                                 <li><NavLink>Selected Classes</NavLink></li>
@@ -42,11 +42,11 @@ const Dashboard = () => {
 
 
                     <div className="divider"></div>
-                    <li><NavLink to='/'>Home</NavLink></li>
-                    <li><NavLink to='/instructors'>Instructors</NavLink></li>
-                    <li><NavLink to='/classes'>Classes</NavLink></li>
+                    <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/instructors'>Instructors</Link></li>
+                    <li><Link to='/classes'>Classes</Link></li>
 
-                    <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                    <li><Link to='/dashboard'>Dashboard</Link></li>
                 </ul>
 
 

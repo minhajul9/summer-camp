@@ -2,9 +2,9 @@ import moment from "moment/moment";
 
 const Footer = () => {
     return (
-        <div className="footer p-10 bg-base-300 text-neutral-content">
+        <div className="footer p-10 bg-neutral text-neutral-content">
             <div className="md:w-4/5 mx-auto">
-                <footer className="footer p-10 bg-base-300 text-neutral-content">
+                <footer className="footer p-10 text-neutral-content">
                     <div>
                         <img src="https://i.ibb.co/ygxHsMb/Screenshot-2023-06-10-160018.png" className="w-32 rounded-lg" alt="" />
                         <p>Summer Sports Camp<br />Making the summer enjoyable for kids since 1992</p>
@@ -18,7 +18,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </footer>
-                <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+                <footer className="footer footer-center p-4  ">
                     <div>
                         <p>Copyright © {moment().format('YYYY')} - All right reserved by Summer Sports Camp</p>
                     </div>

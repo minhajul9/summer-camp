@@ -3,8 +3,9 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import { FaEye } from "react-icons/fa";
 
 const Login = () => {
 
@@ -13,6 +14,8 @@ const Login = () => {
     const [error, setError] = useState('')
     const location = useLocation();
     const navigate = useNavigate();
+
+    const [show, setShow] = useState(false)
 
     const from = location.state?.from || '/';
 
@@ -36,9 +39,10 @@ const Login = () => {
                     name: user.displayName,
                     email: user.email,
                     photo: user.photoURL,
-                    phone: ""
+                    phone: "",
+                    uid: user.uid
                 };
-
+                console.log(setUser);
                 fetch('http://localhost:5000/user', {
                     method: "POST",
                     headers: {
@@ -48,7 +52,7 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         navigate(from, { replace: true })
                     })
             })
@@ -73,7 +77,10 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" {...register('password')} placeholder="password" className="input input-bordered" />
+                            <div className="relative form-control">
+                                <input type={show ? 'text' : 'password'} {...register('password')} placeholder="password" className="input input-bordered" />
+                                <FaEye onClick={() => setShow(!show)} className="absolute md:left-[370px] top-4"></FaEye>
+                            </div>
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
