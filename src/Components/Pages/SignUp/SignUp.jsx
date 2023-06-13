@@ -69,7 +69,9 @@ const SignUp = () => {
                 email: user.email,
                 photo: user.photoURL,
                 phone: "",
-                uid: user.uid
+                uid: user.uid,
+                enrolledClasses: [],
+                selectedClasses : []
             };
             console.log(setUser);
             fetch('http://localhost:5000/user', {

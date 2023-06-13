@@ -53,7 +53,7 @@ const AllUsers = () => {
                             setUsers(remaining)
                             Swal.fire(
                                 'Deleted!',
-                                'Your file has been deleted.',
+                                'User has been deleted.',
                                 'success'
                             )
                         }
