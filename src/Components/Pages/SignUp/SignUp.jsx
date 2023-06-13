@@ -36,7 +36,9 @@ const SignUp = () => {
                         email: email,
                         photo: photo,
                         phone: phone,
-                        uid: result.user.uid
+                        uid: result.user.uid,
+                        enrolledClasses: [],
+                        selectedClasses : []
                     };
 
                     fetch('http://localhost:5000/user', {

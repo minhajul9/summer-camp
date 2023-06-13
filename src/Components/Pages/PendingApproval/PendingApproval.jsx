@@ -33,6 +33,11 @@ const PendingApproval = () => {
                             status.toUpperCase(),
                             className + " "+ status
                         )
+                        Swal.fire({
+                            title: status.toUpperCase(),
+                            text: className + " "+ status,
+                            confirmButtonText: 'Ok'
+                          })
                         window.location.reload(false);
                     }
                 })
