@@ -24,7 +24,7 @@ const Dashboard = () => {
                             <li><Link to='/dashboard'>Admin Home</Link></li>
                             <li><NavLink to='/dashboard/allInstructors'>All Instructors</NavLink></li>
                             <li><NavLink to='/dashboard/allUsers'>All Users</NavLink></li>
-                            <li><NavLink to='/dashboard/pendingApproval'>Pending Approval</NavLink></li>
+                            <li><NavLink to='/dashboard/pendingApproval'>Manage Classes</NavLink></li>
                         </> : user.role === "Instructor" ?
                             <>
                                 <li><NavLink to='/dashboard/addAClass'>Add a Class</NavLink></li>

@@ -30,7 +30,8 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/classes',
-                element: <Classes></Classes>
+                element: <Classes></Classes>,
+                loader: () => fetch('http://localhost:5000/classes/approved')
             },
             {
                 path: '/login',
@@ -62,7 +63,8 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/dashboard/pendingApproval',
-                element: <PendingApproval></PendingApproval>
+                element: <PendingApproval></PendingApproval>,
+                loader: () => fetch('http://localhost:5000/classes')
             },
             {
                 path: '/dashboard/myClasses',
