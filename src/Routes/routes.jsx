@@ -14,6 +14,7 @@ import PendingApproval from "../Components/Pages/PendingApproval/PendingApproval
 import MyClasses from "../Components/Pages/MyClasses/MyClasses";
 import AddAClass from "../Components/Pages/AddAClass/AddAClass";
 import AdminHome from "../Components/Pages/AdminHome/AdminHome";
+import SelectedClasses from "../Components/Pages/SelectedClasses/SelectedClasses";
 
 const routes = createBrowserRouter([
     {
@@ -74,6 +75,10 @@ const routes = createBrowserRouter([
             {
                 path: '/dashboard/addAClass',
                 element: <AddAClass></AddAClass>
+            },
+            {
+                path: '/dashboard/selectedClasses',
+                element: <SelectedClasses></SelectedClasses>
             }
         ]
     }
