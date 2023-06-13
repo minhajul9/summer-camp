@@ -5,35 +5,51 @@ import Swal from "sweetalert2";
 
 const Classes = () => {
     const classes = useLoaderData();
-    const {user} = useContext(AuthContext);
-    const navigate= useNavigate()
+    const { user, setUser } = useContext(AuthContext);
+
+    const navigate = useNavigate()
     const location = useLocation();
 
-    const handleSelect = id =>{
-        if(user){
-            fetch(`http://localhost:5000/class/${user._id}/${id}`, {
-                method: 'put'
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.modifiedCount > 0){
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Class added successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                      })
-                }
-            })
+    const handleSelect = id => {
+        if (user) {
+            if (user.selectedClasses.includes(id)) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Already Selected',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            }
+            else {
+                fetch(`http://localhost:5000/class/${user._id}/${id}`, {
+                    method: 'put'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.modifiedCount > 0) {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: 'Class added successfully',
+                                icon: 'success',
+                                confirmButtonText: 'Cool'
+                            })
+                            const selectedClasses = user.selectedClasses;
+                            selectedClasses.push(id)
+                            user.selectedClasses = selectedClasses;
+                            console.log(user, 'after selecting');
+                            setUser(user)
+                        }
+                    })
+            }
         }
-        else{
+        else {
             Swal.fire({
                 title: 'Access Denied!',
                 text: 'Please, Login first',
                 icon: 'error',
                 confirmButtonText: 'Ok'
-              })
-              navigate('/login', {state: {from: location}})
+            })
+            navigate('/login', { state: { from: location } })
         }
     }
     return (

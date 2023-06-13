@@ -40,6 +40,7 @@ const AuthProvider = ({ children }) => {
                 fetch(`http://localhost:5000/user/${currentUser.uid}`)
                     .then(res => res.json())
                     .then(data => {
+                        console.log('data',data);
                         setUser(data)
                         setLoading(false)
                     })
@@ -62,7 +63,8 @@ const AuthProvider = ({ children }) => {
         createUser,
         googleSignIn,
         logOut,
-        signIn
+        signIn,
+        setUser
     }
 
     return (

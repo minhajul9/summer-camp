@@ -40,7 +40,10 @@ const Login = () => {
                     email: user.email,
                     photo: user.photoURL,
                     phone: "",
-                    uid: user.uid
+                    uid: user.uid,
+                    enrolledClasses: [],
+                    selectedClasses : [],
+                    numberOfStudents: 0
                 };
                 console.log(setUser);
                 fetch('http://localhost:5000/user', {
@@ -55,6 +58,7 @@ const Login = () => {
                         // console.log(data);
                         navigate(from, { replace: true })
                     })
+                    .catch(error => console.log(error))
             })
             .catch(error => setError(error.message))
     }

@@ -36,6 +36,7 @@ const SignUp = () => {
                         email: email,
                         photo: photo,
                         phone: phone,
+                        numberOfStudents: 0,
                         uid: result.user.uid,
                         enrolledClasses: [],
                         selectedClasses : []
@@ -72,6 +73,7 @@ const SignUp = () => {
                 photo: user.photoURL,
                 phone: "",
                 uid: user.uid,
+                numberOfStudents: 0,
                 enrolledClasses: [],
                 selectedClasses : []
             };
