@@ -36,7 +36,7 @@ const Classes = () => {
                             const selectedClasses = user.selectedClasses;
                             selectedClasses.push(id)
                             user.selectedClasses = selectedClasses;
-                            console.log(user, 'after selecting');
+                            // console.log(user, 'after selecting');
                             setUser(user)
                         }
                     })

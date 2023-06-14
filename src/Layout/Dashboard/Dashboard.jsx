@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { FaHome, FaShoppingCart } from "react-icons/fa";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
@@ -26,7 +25,7 @@ const Dashboard = () => {
                         </> : user.role === "Instructor" ?
                             <>
                                 <li><NavLink to='/dashboard/addAClass'>Add a Class</NavLink></li>
-                                <li><NavLink to='/dashboard/myClasses'>My Classes</NavLink></li>
+                                <li><NavLink to='/dashboard/myClasses/'>My Classes</NavLink></li>
                             </> :
                             <>
                                 <li><NavLink to='/dashboard/selectedClasses'>Selected Classes</NavLink></li>

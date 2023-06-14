@@ -46,7 +46,7 @@ const SelectedClasses = () => {
                             setSelectedClasses(remainingClasses);
                             user.selectedClasses = remainingClasses
                             setUser(user)
-                            console.log(user, 'user after removing class');
+                            // console.log(user, 'user after removing class');
                             Swal.fire(
                                 'Deleted!',
                                 'Class has been deleted.',
