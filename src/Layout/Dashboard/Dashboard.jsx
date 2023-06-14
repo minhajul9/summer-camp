@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { FaClipboardCheck, FaFolderPlus, FaHandPointUp, FaHospitalUser, FaHotel, FaUsers } from "react-icons/fa";
+import { GiWallet } from "react-icons/gi";
 
 const Dashboard = () => {
 
@@ -20,17 +22,17 @@ const Dashboard = () => {
                     {/* Sidebar content here */}
                     {
                         user.role === "Admin" ? <>
-                            <li><NavLink to='/dashboard/manageUsers'>Manage Users</NavLink></li>
-                            <li><NavLink to='/dashboard/manageClasses'>Manage Classes</NavLink></li>
+                            <li><NavLink to='/dashboard/manageUsers'><FaUsers /> Manage Users</NavLink></li>
+                            <li><NavLink to='/dashboard/manageClasses'><FaHotel /> Manage Classes</NavLink></li>
                         </> : user.role === "Instructor" ?
                             <>
-                                <li><NavLink to='/dashboard/addAClass'>Add a Class</NavLink></li>
-                                <li><NavLink to='/dashboard/myClasses/'>My Classes</NavLink></li>
+                                <li><NavLink to='/dashboard/addAClass'><FaFolderPlus /> Add a Class</NavLink></li>
+                                <li><NavLink to='/dashboard/myClasses/'><FaHospitalUser></FaHospitalUser> My Classes</NavLink></li>
                             </> :
                             <>
-                                <li><NavLink to='/dashboard/selectedClasses'>Selected Classes</NavLink></li>
-                                <li><NavLink to='/dashboard/enrolledClasses'>Enrolled Classes</NavLink></li>
-                                <li><NavLink to='/dashboard/paymentHistory'>Payment History</NavLink></li>
+                                <li><NavLink to='/dashboard/selectedClasses'><FaHandPointUp /> Selected Classes</NavLink></li>
+                                <li><NavLink to='/dashboard/enrolledClasses'><FaClipboardCheck /> Enrolled Classes</NavLink></li>
+                                <li><NavLink to='/dashboard/paymentHistory'><GiWallet />Payment History</NavLink></li>
                             </>
                     }
 
