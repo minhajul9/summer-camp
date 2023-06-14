@@ -29,12 +29,12 @@ const routes = createBrowserRouter([
             {
                 path: '/instructors',
                 element: <Instructors></Instructors>,
-                loader: () => fetch('https://summer-camp-server-minhajul9.vercel.app/users/instructor')
+                loader: () => fetch('https://summer-camp-server-kohl.vercel.app/users/instructor')
             },
             {
                 path: '/classes',
                 element: <Classes></Classes>,
-                loader: () => fetch('https://summer-camp-server-minhajul9.vercel.app/classes/approved')
+                loader: () => fetch('https://summer-camp-server-kohl.vercel.app/classes/approved')
             },
             {
                 path: '/login',
@@ -58,12 +58,12 @@ const routes = createBrowserRouter([
             {
                 path: '/dashboard/manageUsers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
-                loader: () => fetch('https://summer-camp-server-minhajul9.vercel.app/users')
+                loader: () => fetch('https://summer-camp-server-kohl.vercel.app/users')
             },
             {
                 path: '/dashboard/manageClasses',
                 element: <AdminRoute><PendingApproval></PendingApproval></AdminRoute>,
-                loader: () => fetch('https://summer-camp-server-minhajul9.vercel.app/classes')
+                loader: () => fetch('https://summer-camp-server-kohl.vercel.app/classes')
             },
             {
                 path: '/dashboard/myClasses',

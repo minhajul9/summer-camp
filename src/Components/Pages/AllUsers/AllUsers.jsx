@@ -9,14 +9,43 @@ const AllUsers = () => {
     const [users, setUsers] = useState(useLoaderData());
 
     const handleChangeRole = (id, role, name) => {
-        fetch('https://summer-camp-server-minhajul9.vercel.app/user', {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify({ id, role })
-        }
-        )
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Make " + name + " " + role.toUpperCase(),
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, update'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch('https://summer-camp-server-kohl.vercel.app/users', {
+                    method: "PUT",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify({ id, role })
+                }
+                )
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.modifiedCount > 0) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: `${name}'s role change to ${role}`,
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+                    })
+
+            }
+        })
+
+
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -43,7 +72,7 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://summer-camp-server-minhajul9.vercel.app/user/${id}`,{
+                fetch(`https://summer-camp-server-kohl.vercel.app/users/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

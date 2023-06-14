@@ -19,7 +19,7 @@ const PendingApproval = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch('https://summer-camp-server-minhajul9.vercel.app/classes/update',{
+                fetch('https://summer-camp-server-kohl.vercel.app/classes/update',{
                     method: 'PATCH', 
                     headers: {
                         'content-type' : "application/json"
@@ -85,12 +85,12 @@ const PendingApproval = () => {
                                     <span className="badge badge-ghost badge-sm">{cls.instructorEmail}</span>
                                 </td>
                                 <td>{cls.availableSeats}</td>
-                                <td>{cls.price}</td>
+                                <td>${cls.price}</td>
                                 <td>{cls.status}</td>
                                 <th>
-                                    <button onClick={() => handleApprove(cls._id, cls.className, 'approved')} disabled={cls.status === 'denied'} className="btn btn-ghost text-xl text-green-600"><FaCheck /></button>
+                                    <button onClick={() => handleApprove(cls._id, cls.className, 'approved')} disabled={cls.status !== 'pending'} className="btn btn-ghost text-xl text-green-600"><FaCheck /></button>
 
-                                    <button onClick={() => handleApprove(cls._id, cls.className, 'denied')} className="btn btn-ghost text-xl text-red-600"><FaRegTimesCircle /></button>
+                                    <button onClick={() => handleApprove(cls._id, cls.className, 'denied')} disabled={cls.status !== 'pending'} className="btn btn-ghost text-xl text-red-600"><FaRegTimesCircle /></button>
                                 </th>
                                 <th>
                                     <button onClick={() => handleApprove(cls._id, cls.className)} className="btn btn-ghost text-xl text-yellow-600"><FaComment /></button>

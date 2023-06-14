@@ -21,7 +21,7 @@ const Classes = () => {
                 })
             }
             else {
-                fetch(`https://summer-camp-server-minhajul9.vercel.app/class/${user._id}/${id}`, {
+                fetch(`https://summer-camp-server-kohl.vercel.app/class/${user._id}/${id}`, {
                     method: 'put'
                 })
                     .then(res => res.json())
@@ -53,7 +53,7 @@ const Classes = () => {
         }
     }
     return (
-        <div className="my-8 grid lg:grid-cols-3 md:grid-cols-2 justify-center">
+        <div className="my-8 grid lg:grid-cols-3 md:grid-cols-2 justify-center gap-12">
             {
                 classes.map(cls =>
                     <div key={cls._id} className="card w-96 bg-base-100 shadow-xl border">

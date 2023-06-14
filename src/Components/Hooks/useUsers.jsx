@@ -10,7 +10,7 @@ const useUsers = () => {
     const { refetch, data : users = []} = useQuery({
         queryKey: ['users', user.email],
         queryFn: async () => {
-            const response = await fetch(`https://summer-camp-server-minhajul9.vercel.app/user/${user.uid}`);
+            const response = await fetch(`https://summer-camp-server-kohl.vercel.app/user/${user.uid}`);
 
             return response.json()
         },

@@ -39,10 +39,10 @@ const SignUp = () => {
                         numberOfStudents: 0,
                         uid: result.user.uid,
                         enrolledClasses: [],
-                        selectedClasses : []
+                        selectedClasses: []
                     };
 
-                    fetch('https://summer-camp-server-minhajul9.vercel.app/user', {
+                    fetch('https://summer-camp-server-kohl.vercel.app/users', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json'
@@ -51,8 +51,9 @@ const SignUp = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data);
+                            // console.log(data);
                             navigate(from, { replace: true })
+                            window.location.reload(false);
                         })
                 })
                 .catch(error => setError(error.message))
@@ -64,34 +65,35 @@ const SignUp = () => {
 
     const handleGoogleLogin = () => {
         googleSignIn()
-        .then(result => {
-            const user = result.user;
-            console.log(result);
-            const setUser = {
-                name: user.displayName,
-                email: user.email,
-                photo: user.photoURL,
-                phone: "",
-                uid: user.uid,
-                numberOfStudents: 0,
-                enrolledClasses: [],
-                selectedClasses : []
-            };
-            console.log(setUser);
-            fetch('https://summer-camp-server-minhajul9.vercel.app/user', {
-                method: "POST",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(setUser)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    navigate(from, { replace: true })
+            .then(result => {
+                const user = result.user;
+                console.log(result);
+                const setUser = {
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL,
+                    phone: "",
+                    uid: user.uid,
+                    numberOfStudents: 0,
+                    enrolledClasses: [],
+                    selectedClasses: []
+                };
+                // console.log(setUser);
+                fetch('https://summer-camp-server-kohl.vercel.app/users', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(setUser)
                 })
-        })
-        .catch(error => setError(error.message))
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log(data);
+                        navigate(from, { replace: true })
+                        window.location.reload(false);
+                    })
+            })
+            .catch(error => setError(error.message))
     }
     return (
         <div className="hero min-h-screen bg-base-200 ">
