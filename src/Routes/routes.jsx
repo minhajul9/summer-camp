@@ -8,13 +8,14 @@ import ErrorPage from "../Components/Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import Login from "../Components/Pages/Login/Login";
-import AllInstructors from "../Components/Pages/AllInstructors/AllInstructors";
 import AllUsers from "../Components/Pages/AllUsers/AllUsers";
 import PendingApproval from "../Components/Pages/PendingApproval/PendingApproval";
 import MyClasses from "../Components/Pages/MyClasses/MyClasses";
 import AddAClass from "../Components/Pages/AddAClass/AddAClass";
 import AdminHome from "../Components/Pages/AdminHome/AdminHome";
 import SelectedClasses from "../Components/Pages/SelectedClasses/SelectedClasses";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
 
 const routes = createBrowserRouter([
     {
@@ -28,12 +29,12 @@ const routes = createBrowserRouter([
             {
                 path: '/instructors',
                 element: <Instructors></Instructors>,
-                loader: () => fetch('http://localhost:5000/users/instructor')
+                loader: () => fetch('https://summer-camp-server-minhajul9.vercel.app/users/instructor')
             },
             {
                 path: '/classes',
                 element: <Classes></Classes>,
-                loader: () => fetch('http://localhost:5000/classes/approved')
+                loader: () => fetch('https://summer-camp-server-minhajul9.vercel.app/classes/approved')
             },
             {
                 path: '/login',
@@ -55,30 +56,26 @@ const routes = createBrowserRouter([
                 element: <AdminHome></AdminHome>
             },
             {
-                path: '/dashboard/allInstructors',
-                element: <AllInstructors></AllInstructors>
-            },
-            {
                 path: '/dashboard/manageUsers',
-                element: <AllUsers></AllUsers>,
-                loader: () => fetch('http://localhost:5000/users')
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
+                loader: () => fetch('https://summer-camp-server-minhajul9.vercel.app/users')
             },
             {
                 path: '/dashboard/manageClasses',
-                element: <PendingApproval></PendingApproval>,
-                loader: () => fetch('http://localhost:5000/classes')
+                element: <AdminRoute><PendingApproval></PendingApproval></AdminRoute>,
+                loader: () => fetch('https://summer-camp-server-minhajul9.vercel.app/classes')
             },
             {
                 path: '/dashboard/myClasses',
-                element: <MyClasses></MyClasses>
+                element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
             },
             {
                 path: '/dashboard/addAClass',
-                element: <AddAClass></AddAClass>
+                element: <InstructorRoute><AddAClass></AddAClass></InstructorRoute>
             },
             {
                 path: '/dashboard/selectedClasses',
-                element: <SelectedClasses></SelectedClasses>
+                element: <PrivateRoute><SelectedClasses></SelectedClasses></PrivateRoute>
             }
         ]
     }

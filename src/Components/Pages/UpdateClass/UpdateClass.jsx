@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AllInstructors = () => {
+const UpdateClass = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const AllInstructors = () => {
     );
 };
 
-export default AllInstructors;
+export default UpdateClass;

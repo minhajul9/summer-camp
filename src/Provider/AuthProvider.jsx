@@ -37,7 +37,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             if (currentUser) {
                 // console.log(currentUser);
-                fetch(`http://localhost:5000/user/${currentUser.uid}`)
+                fetch(`https://summer-camp-server-minhajul9.vercel.app/user/${currentUser.uid}`)
                     .then(res => res.json())
                     .then(data => {
                         console.log('data',data);

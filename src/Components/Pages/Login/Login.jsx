@@ -46,7 +46,7 @@ const Login = () => {
                     numberOfStudents: 0
                 };
                 console.log(setUser);
-                fetch('http://localhost:5000/user', {
+                fetch('https://summer-camp-server-minhajul9.vercel.app/user', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'

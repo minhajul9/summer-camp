@@ -11,7 +11,7 @@ const SelectedClasses = () => {
     const { user, setUser } = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/classes/${user._id}`)
+        fetch(`https://summer-camp-server-minhajul9.vercel.app/classes/${user._id}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -33,7 +33,7 @@ const SelectedClasses = () => {
             if (result.isConfirmed) {
                 const remainingClasses = selectedClasses.filter(cls => cls._id !== id);
                 const remainingIds = remainingClasses.map(cls => cls._id)
-                fetch(`http://localhost:5000/classes/${user._id}`, {
+                fetch(`https://summer-camp-server-minhajul9.vercel.app/classes/${user._id}`, {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"

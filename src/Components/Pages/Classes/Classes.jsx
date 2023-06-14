@@ -21,7 +21,7 @@ const Classes = () => {
                 })
             }
             else {
-                fetch(`http://localhost:5000/class/${user._id}/${id}`, {
+                fetch(`https://summer-camp-server-minhajul9.vercel.app/class/${user._id}/${id}`, {
                     method: 'put'
                 })
                     .then(res => res.json())

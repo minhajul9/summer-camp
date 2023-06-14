@@ -10,7 +10,7 @@ const MyClasses = () => {
     const [classes, setClasses] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/classes/instructor`, {
+        fetch(`https://summer-camp-server-minhajul9.vercel.app/classes/instructor`, {
             method: 'post',
             headers: {
                 'content-type': "application/json"

@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Navigate } from 'react-router-dom';
 import { AttentionSeeker } from "react-awesome-reveal";
+import Swal from 'sweetalert2';
 
-const PrivateRoute = ({ children }) => {
+const AdminRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     // console.log(user);
 
@@ -16,16 +17,21 @@ const PrivateRoute = ({ children }) => {
         </div>
     }
 
-    if (user) {
+    if (user.role === 'Admin') {
         // console.log("user from private:", user);
         return children;
     }
 
-    if (!user) {
-        return (
-            <Navigate to='/login'></Navigate>
-        );
+    else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Access denied!',
+            footer: '<Link to="/">Back to Home?</Link>'
+          })
+        return <Navigate to='/'></Navigate>
+       
     }
 };
 
-export default PrivateRoute;
+export default AdminRoute;

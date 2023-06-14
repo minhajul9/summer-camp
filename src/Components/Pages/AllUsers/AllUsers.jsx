@@ -9,7 +9,7 @@ const AllUsers = () => {
     const [users, setUsers] = useState(useLoaderData());
 
     const handleChangeRole = (id, role, name) => {
-        fetch('http://localhost:5000/user', {
+        fetch('https://summer-camp-server-minhajul9.vercel.app/user', {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
@@ -43,7 +43,7 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/user/${id}`,{
+                fetch(`https://summer-camp-server-minhajul9.vercel.app/user/${id}`,{
                     method: "DELETE"
                 })
                     .then(res => res.json())
