@@ -6,6 +6,7 @@ import AuthProvider from './Provider/AuthProvider';
 import { RouterProvider } from 'react-router-dom';
 import routes from './Routes/routes';
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
