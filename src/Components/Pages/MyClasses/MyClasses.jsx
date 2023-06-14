@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 const MyClasses = () => {
 
@@ -24,6 +25,10 @@ const MyClasses = () => {
     // console.log(classes);
     return (
         <div>
+            <Helmet>
+                <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/ygxHsMb/Screenshot-2023-06-10-160018.png" />
+                <title>SSC | My Classes</title>
+            </Helmet>
             <h1 className='text-3xl font-bold text-center my-12'>My Classes</h1>
             <div className="overflow-x-auto">
                 <table className="table">

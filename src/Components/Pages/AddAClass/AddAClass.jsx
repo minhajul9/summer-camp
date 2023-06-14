@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const AddAClass = () => {
 
@@ -31,10 +32,10 @@ const AddAClass = () => {
             if (result.isConfirmed) {
                 fetch('https://summer-camp-server-kohl.vercel.app/classes', {
                     method: "POST",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(newClass)
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newClass)
                 })
                     .then(res => res.json())
                     .then(data => {
@@ -45,7 +46,7 @@ const AddAClass = () => {
                                 'success'
                             )
                             reset();
-                            
+
                         }
                     })
 
@@ -56,6 +57,10 @@ const AddAClass = () => {
 
     return (
         <div>
+            <Helmet>
+                <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/ygxHsMb/Screenshot-2023-06-10-160018.png" />
+                <title>SSC | Add A Class</title>
+            </Helmet>
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col md:w-[800px]">
                     <div className="text-center lg:text-left">

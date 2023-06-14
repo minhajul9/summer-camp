@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Classes = () => {
     const classes = useLoaderData();
@@ -54,6 +55,10 @@ const Classes = () => {
     }
     return (
         <div className="my-8 grid lg:grid-cols-3 md:grid-cols-2 justify-center gap-12">
+            <Helmet>
+                <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/ygxHsMb/Screenshot-2023-06-10-160018.png" />
+                <title>SSC | Classes</title>
+            </Helmet>
             {
                 classes.map(cls =>
                     <div key={cls._id} className="card w-96 bg-base-100 shadow-xl border">

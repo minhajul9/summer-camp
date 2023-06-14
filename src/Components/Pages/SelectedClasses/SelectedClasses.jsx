@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { FaTrashAlt, FaWallet } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const SelectedClasses = () => {
 
@@ -61,6 +62,10 @@ const SelectedClasses = () => {
     }
     return (
         <div>
+            <Helmet>
+                <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/ygxHsMb/Screenshot-2023-06-10-160018.png" />
+                <title>SSC | Selected Classes</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { FaEye } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
 
@@ -65,6 +66,10 @@ const Login = () => {
 
     return (
         <div className="hero min-h-screen bg-base-200 ">
+            <Helmet>
+                <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/ygxHsMb/Screenshot-2023-06-10-160018.png" />
+                <title>SSC | User Login</title>
+            </Helmet>
             <div className="hero-content flex-col ">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>

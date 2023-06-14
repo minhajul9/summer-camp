@@ -95,7 +95,8 @@ const AllUsers = () => {
     return (
         <div className=''>
             <Helmet>
-                <title>SSC | All Users</title>
+                <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/ygxHsMb/Screenshot-2023-06-10-160018.png" />
+                <title>SSC | Manage Users</title>
             </Helmet>
             <h1 className='text-3xl font-bold text-center my-16'>All Users</h1>
             <div className="overflow-x-auto">

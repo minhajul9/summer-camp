@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from "react-helmet";
 
 
 
@@ -97,6 +98,10 @@ const SignUp = () => {
     }
     return (
         <div className="hero min-h-screen bg-base-200 ">
+            <Helmet>
+                <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/ygxHsMb/Screenshot-2023-06-10-160018.png" />
+                <title>SSC | Sign UP</title>
+            </Helmet>
             <div className="hero-content flex-col ">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Sign Up now!</h1>
