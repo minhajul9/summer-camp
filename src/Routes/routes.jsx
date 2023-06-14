@@ -59,12 +59,12 @@ const routes = createBrowserRouter([
                 element: <AllInstructors></AllInstructors>
             },
             {
-                path: '/dashboard/allUsers',
+                path: '/dashboard/manageUsers',
                 element: <AllUsers></AllUsers>,
                 loader: () => fetch('http://localhost:5000/users')
             },
             {
-                path: '/dashboard/pendingApproval',
+                path: '/dashboard/manageClasses',
                 element: <PendingApproval></PendingApproval>,
                 loader: () => fetch('http://localhost:5000/classes')
             },

@@ -21,17 +21,17 @@ const Dashboard = () => {
                     {/* Sidebar content here */}
                     {
                         user.role === "Admin" ? <>
-                            <li><NavLink to='/dashboard/allUsers'>Manage Users</NavLink></li>
-                            <li><NavLink to='/dashboard/pendingApproval'>Manage Classes</NavLink></li>
+                            <li><NavLink to='/dashboard/manageUsers'>Manage Users</NavLink></li>
+                            <li><NavLink to='/dashboard/manageClasses'>Manage Classes</NavLink></li>
                         </> : user.role === "Instructor" ?
                             <>
                                 <li><NavLink to='/dashboard/addAClass'>Add a Class</NavLink></li>
                                 <li><NavLink to='/dashboard/myClasses'>My Classes</NavLink></li>
                             </> :
                             <>
-                                <li><NavLink>Selected Classes</NavLink></li>
-                                <li><NavLink>Enrolled Classes</NavLink></li>
-                                <li><NavLink>Payment History</NavLink></li>
+                                <li><NavLink to='/dashboard/selectedClasses'>Selected Classes</NavLink></li>
+                                <li><NavLink to='/dashboard/enrolledClasses'>Enrolled Classes</NavLink></li>
+                                <li><NavLink to='/dashboard/paymentHistory'>Payment History</NavLink></li>
                             </>
                     }
 
