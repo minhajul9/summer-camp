@@ -16,6 +16,8 @@ import AdminHome from "../Components/Pages/AdminHome/AdminHome";
 import SelectedClasses from "../Components/Pages/SelectedClasses/SelectedClasses";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
+import EnrolledClasses from "../Components/Pages/EnrolledClasses/EnrolledClasses";
+import PaymentHistory from "../Components/Pages/PaymentHistory/PaymentHistory";
 
 const routes = createBrowserRouter([
     {
@@ -76,6 +78,14 @@ const routes = createBrowserRouter([
             {
                 path: '/dashboard/selectedClasses',
                 element: <PrivateRoute><SelectedClasses></SelectedClasses></PrivateRoute>
+            },
+            {
+                path: '/dashboard/enrolledClasses',
+                element: <PrivateRoute><EnrolledClasses></EnrolledClasses></PrivateRoute>
+            },
+            {
+                path: '/dashboard/paymentHistory',
+                element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
             }
         ]
     }
